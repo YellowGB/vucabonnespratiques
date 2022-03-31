@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OutilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::get('outils', function () {
-    return view('outils');
-})->name('outils');
+Route::get('impact', function () {
+    return view('impact');
+})->name('impact');
+
+Route::get('enjeux', function () {
+    return view('enjeux');
+})->name('enjeux');
+
+Route::get('outils', [OutilController::class, 'index'])->name('outils');
+
+Route::get('management', function () {
+    return view('management');
+})->name('management');
